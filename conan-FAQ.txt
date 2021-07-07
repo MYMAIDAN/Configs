@@ -1,0 +1,16 @@
+1. Conan search in local cach
+   conan search zlib/1.2.11@
+2. Conan search in center
+   conan search zlib/1.2.11 --table=file.html -r=conan-center
+3. Conan info about dependency
+   conan info .. --graph=file.html
+4. Build without build system just using gcc
+	conan install . -g compiler_args
+	g++ timer.cpp @conanbuildinfo.args -o timer -std=c++11
+5. Build using find package cmake generator ( this generator shoud be present in conanfile.txt )
+	[generatprs]
+	cmake_find_package
+6. Create own package
+   conan new package_name/version
+   edit python recipt
+   conan create . user/stable|testing -s build_type=Debug|Release
